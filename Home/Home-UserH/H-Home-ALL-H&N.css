@@ -1,0 +1,510 @@
+/* ส่วนหลัก */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+body{
+    background: rgb(224, 224, 224);
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 255px;
+    padding: 15px 10px;
+    background: rgb(246, 255, 118);
+    box-shadow: 0px 0px 25px rgb(158, 157, 148);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.sidebar .arrow {
+    position: fixed;
+    width: 38px;
+    height: 42px;
+    text-align: center;
+    background-color: rgb(246, 255, 118);
+    border-radius: 10px;
+}
+
+.sidebar .tex_img {
+    font-size: 17px;
+    font-weight: 1000;
+    color: rgb(110, 109, 109);
+}
+
+.sidebar .logo img{
+    width: 50px;
+    border-radius: 15px;
+    margin: 0 8px;
+
+}
+
+.sidebar header1 .logo{
+    display: flex;
+    align-items: center;
+}
+
+.sidebar header1 .logo1{
+    min-width: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .manu .tex_tex1{
+    display: flex;
+    margin-top: 15px ;
+    height: 50px;
+    list-style: none;
+    align-items: center;
+    color: rgb(110, 109, 109);
+}
+
+.sidebar .manu1 .tex_tex1 a{
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(110, 109, 109);
+    font-weight: 1000;
+    transition: all 0.5s ease;
+}
+
+.sidebar .manu1 .tex_tex1 a:hover{
+    color: rgb(255, 123, 0);
+    text-shadow: 8px 8px 8px rgb(251, 255, 37);
+}
+
+.sidebar .logout{
+    position: absolute;
+    bottom: 40px;
+    width: 80%;
+}
+
+.sidebar header1 .arrow{
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    right: -45px;
+    transform: translate(-40%);
+    font-size: 25px;
+    color:  rgb(99, 99, 99);
+    transition: all 0.5s ease;
+    padding: 7px;
+}
+
+.sidebar header1 .arrow_from{
+    position: fixed;
+    top: 50%;
+    right: -25px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.sidebar header1 .arrow:hover{
+    color: rgb(0, 202, 61);
+}
+
+.sidebar .manu .tex_tex1 .icon_manu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    min-width: 65px;
+}
+
+.sidebar .manu1 li{
+    transition: all 0.5s ease;
+    border-radius: 8px;
+}
+.sidebar .manu1 li:hover{
+    background: rgb(255, 231, 12);
+}
+
+.sidebar .right-arrow{
+    transform: rotate(180deg);
+}
+
+
+/*แก้ตอนย่อจอ*/
+@media only screen and (max-width: 450px) {
+    .sidebar .manu li{
+        font-size: 20px;
+    }
+    .sidebar .manu .tex1{
+        font-size: 15px;
+    }
+    .sidebar{
+        width: 250px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .sidebar.closer {
+        width: 0px;
+    }
+    .sidebar.closer .manu i{
+        position: absolute;
+        opacity: 0;
+        top : 10000px
+    }
+    .sidebar.closer .logo img{
+        opacity: 0;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .sidebar.closer {
+        width: 85px;
+    }
+}
+
+/*แก้ตอนย่อจอ*/
+
+/*แก้ตอนไปอีกโหมด*/
+.sidebar.closer .tex_img{
+    font-size: 1px;
+}
+
+.sidebar.closer .manu1 .tex_tex1 a{
+    margin-left: 0px;
+}
+
+.sidebar.closer{
+    transition: all 0.5s ease;
+}
+
+.sidebar.closer .tex_img .tex_name{
+    font-size: 1px;
+    opacity: 0;
+}
+
+.sidebar.closer .tex1{
+    position: fixed;
+    font-size: 1px;
+    opacity: 0;
+    left: 5000px;
+}
+.sidebar.closer .right-arrow{
+    transform: rotate(1deg);
+}
+/*แก้ตอนไปอีกโหมด*/
+
+.content {
+    position: static;
+    z-index: 0;
+    margin-left: 86px;
+    background-color: rgb(211, 211, 211);
+}
+
+@media only screen and (max-width: 500px) {
+    .content {
+        margin-left: 20px;
+    }
+}
+
+.content .top_bar{
+    position: static;
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid black;
+    background-color: rgb(163, 161, 161);
+}
+
+.art {
+    margin-left: 85px;
+    height: auto;
+}
+
+.art .art_section{
+    text-align: center; 
+    padding: 10px 0px 10px 0px;
+    background-color: antiquewhite;
+}
+
+.art .art_table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+}
+
+.art_table th, td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    word-break: break-all;
+}
+
+@media screen and (max-width: 500px) {
+    .art_table {
+        font-size: 7px;
+    }
+    .art_table th, td {
+        padding: 5px;
+    }
+    .art_section{
+        font-size: 15px;
+    }
+}
+/*ปุ่มทั้งหมด*/
+.button1 {
+    display: inline-block;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #39424b;
+    color: #fff;
+    border-radius: 30px;
+    border: none;
+}
+.button1:hover {
+    background-color: rgb(41, 41, 41);
+    color: #fff;
+}
+
+.button2 {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #00c721;
+    color: #fff;
+    border-radius : 5px;
+    border: none;
+    margin-left: 1200px;
+}
+.button2:hover {
+    background-color: #007419;
+    color: #fff;
+}
+.button3 {
+    display: inline-block;
+    align-items: center;
+    padding: 10px;
+    width: 70px;
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #39424b;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+}
+.button3:hover {
+    background-color: rgb(41, 41, 41);
+    color: #fff;
+}
+
+.conbut1{
+    width: 70px;
+    height: 30px;
+}
+
+
+/*กล่องค้าหา*/
+.box{
+    position: relative;
+    margin-top: 3px;
+    padding-left: 40px;
+    text-align: left;
+}
+
+.box1{
+    position: relative;
+    margin-top: 3px;
+    padding-left: 40px;
+    text-align: center;
+}
+
+.input {
+    padding: 10px;
+    width: 340px;
+    height: 40px;
+    background: #e7e7e7;
+    border: 2px solid #333333;
+    border-radius: 30px;
+    box-sizing: border-box;
+    font-size: 13px;
+    color: rgb(43, 43, 43);
+    outline: none;
+    transition: .5s;
+    background: #e7e7e7;
+}
+.box:hover input{
+    background: #e7e7e7;
+    border-radius: 30px;
+    border: 2px solid #333333;
+}
+.box1:hover input{
+    background: #e7e7e7;
+    border-radius: 30px;
+    border: 2px solid #333333;
+}
+/*ตาราง*/
+.timetable{
+    background-color: #a7a7a7;
+    padding: 1px;
+
+}
+.timetable.body {
+    font-family: Arial, sans-serif;
+
+}
+
+.container {
+    max-width: 1200px;
+    max-height: 1000px;
+    margin: 0 auto;
+}
+
+.table-container {
+    position: relative;
+    padding-top: 0px;
+    overflow: hidden;
+    width: 100%;
+    border: 10px;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+th, td {
+    text-align: center;
+    border-radius: 0px;
+    width: 120px;
+    height: 60px;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+.th :hover{
+    background-color: rgb(0, 0, 0);
+}
+.large2{
+    text-align: left;
+    min-width: 150px;
+    min-height: 200px;
+    background-color: rgba(197, 64, 64, 0);
+    border-color: rgba(197, 64, 64, 0);
+
+}
+
+/*ปุ่มตาราง*/
+.buttonT:hover{
+    background-color: rgba(197, 64, 64, 0);
+}
+.buttonT {
+    display: inline-block;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgba(197, 64, 64, 0);
+    color: #242424;
+    border-radius: 5px;
+    margin: 0px 0px 0px 0px;
+}
+
+/*ตัวเปลี่ยนหน้า*/
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination li {
+    margin-right: 25px;
+    width: 25px;
+    height: 25px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #a7a5a5;
+    color: #fdfdfd;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+
+.pagination a:hover {
+    background-color: rgb(51, 51, 51);
+}
+
+.pagination a.active {
+    background-color: #242424;
+    color: #fff;
+}
+
+.bottom-link {
+    padding-left: 15px;
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.pagination-number {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 5px;
+}
+
+.active .pagination-number {
+    background-color: #595a5a;
+    color: #fff;
+}
+
+.pagination {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 50px 2px;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    text-decoration: underline;
+}
+
+.pagination .current-page {
+    font-weight: bold;
+}
