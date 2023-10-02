@@ -29,7 +29,9 @@ $Cpassword = mysqli_real_escape_string($conn, $_POST['Cpassword']);
     }
     if (!$password) {
     $error .= "ไม่ใส่รหัสผ่าน <br>";
-    } 
+    } elseif (strlen($password) < 8) {
+    $error .= "รหัสผ่านต้องมีอย่างน้อย 8 เลข <br>";
+    }
     if ($error) {
     $error = "<br> ไม่สามารถสมัคได้เนื่องจาก <br>".$error;
     }  else {

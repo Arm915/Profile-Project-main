@@ -4,70 +4,6 @@ include('DataRegister.php');
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Admin-from-ALL.css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-</head>
-<body>
-    <div class="container">
-        <header>ID : </header>
-    <form action="" method="POST">
-
-        <div class="form first">
-            <div class="details personal">
-            <span class="title">เพิ่มบัญชีทั่วไป</span>
-                    <div class="fields">
-                        <div class="input-field">
-                            <label>ตำแหน่ง</label>
-                            <select id="cars1" name="rankH" value="" required>
-                                <option value="volvo" selected>ตำแหน่ง</option>
-                                <option value="saab">Saab</option>
-                                <option value="vw">VW</option>
-                                <option value="audi" >ตำแหน่ง</option>
-                            </select>
-                        </div>
-                        <div class="input-field">
-                            <label>คณะ</label>
-                            <select id="cars2" name="branchH" value="" required>
-                                <option value="volvo" selected>สาขา</option>
-                                <option value="saab">Saab</option>
-                                <option value="vw">VW</option>
-                                <option value="audi" >คณะ</option>
-                            </select>
-                        </div>
-                        <div class="input-field">
-                            <label>ชื่อ</label>
-                            <input type="text" placeholder="ชื่อ" id="nameH" name="nameH" value="" required>
-                        </div>
-                        <div class="input-field">
-                            <label>นามสกุล</label>
-                            <input type="text" placeholder="นามสกุล" class="custom-file-input" id="surnameH" name="surnameH" value="" required>
-                        </div>
-                        <div class="input-field">
-                            <label>Email</label>
-                            <input type="text" placeholder="Email" id="emailH" name="emailH" value="" required>
-                        </div>
-                        <div class="input-field1">
-                            <label>รหัสผ่าน</label>
-                            <input type="text" placeholder="รหัสผ่าน" id="passwordH" name="passwordH" value="" required>
-                        </div>
-                        <div class="sumbit1">
-                            <input class="backBtn3" type="submit" name="RegisterH" value="บันทึกการแก้ไข">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-</body>
-</html>
-
-
 <?php 
 
 $error = "";
@@ -97,10 +33,10 @@ $password = mysqli_real_escape_string($conn,  $_POST['passwordH']);
     }
     if (!$password) {
     $error .= "ไม่ใส่รหัสผ่าน <br>";
-    } 
-    if ($error) {
-    $error = "<br> ไม่สามารถสมัคได้เนื่องจาก <br>".$error;
-    }  else {
+    } elseif (strlen($password) < 8) {
+    $error .= "รหัสผ่านต้องมีอย่างน้อย 8 เลข <br>";
+    }
+    else {
     
         $query = "SELECT id FROM regis WHERE email = '$email'";
         $result = mysqli_query($conn, $query);
@@ -120,3 +56,83 @@ $password = mysqli_real_escape_string($conn,  $_POST['passwordH']);
         }  
     
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Admin-from-ALL.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+<body>
+    <div class="container">
+        <header>ID : </header>
+    <form action="" method="POST">
+
+        <div class="form first">
+            <div class="details personal">
+            <span class="title">เพิ่มบัญชีทั่วไป</span>
+            <div class="error" > <?php echo $error; ?></div>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>ตำแหน่ง</label>
+                            <select id="cars1" name="rankH" value="" required>
+                                <option value="" selected>ตำแหน่ง</option>
+                                <option value="saab">Saab</option>
+                                <option value="vw">VW</option>
+                                <option value="" >ตำแหน่ง</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>คณะ</label>
+                            <select id="cars2" name="branchH" value="" required>
+                            <option value="" selected>สาขา</option>
+                                <option value="สาขาวิชาคอมพิวเตอร์(ค.บ.)">สาขาวิชาคอมพิวเตอร์(ค.บ.)</option>
+                                <option value="สาขาวิชาฟิสิกส์(ค.บ.)">สาขาวิชาฟิสิกส์(ค.บ.)</option>
+                                <option value="สาขาวิชาคณิตศาสตร์(ค.บ)" >สาขาวิชาคณิตศาสตร์ (ค.บ)</option>
+                                <option value="สาขาวิชาวิทยาศาสตร์ทั่วไป(ค.บ.)">สาขาวิชาวิทยาศาสตร์ทั่วไป(ค.บ.)</option>
+                                <option value="สาขาวิชาเคมี(ค.บ.)">สาขาวิชาเคมี(ค.บ.)</option>
+                                <option value="สาขาวิชาชีววิทยา(ค.บ.)" >สาขาวิชาชีววิทยา(ค.บ.)</option>
+                                <option value="สาขาวิชาการประกอบอาหารและการจัดการงานครัว">สาขาวิชาการประกอบอาหารและการจัดการงานครัว</option>
+                                <option value="สาขาวิชาการประกันภัยและบริหารความเสี่ยง">สาขาวิชาการประกันภัยและบริหารความเสี่ยง</option>
+                                <option value="สาขาวิชามัลติมีเดียและอีสปอร์ต" >สาขาวิชามัลติมีเดียและอีสปอร์ต</option>
+                                <option value="สาขาวิชาเทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล">สาขาวิชาเทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล</option>
+                                <option value="สาขาวิชาวิศวกรรมโยธาและบริหารงานก่อสร้าง">สาขาวิชาวิศวกรรมโยธาและบริหารงานก่อสร้าง</option>
+                                <option value="สาขาวิชาวิทยาศาสตร์การกีฬาและการออกกำลังกาย" >สาขาวิชาวิทยาศาสตร์การกีฬาและการออกกำลังกาย</option>
+                                <option value="สาขาวิชาการจัดการสิ่งแวดล้อมและความปลอดภัย">สาขาวิชาการจัดการสิ่งแวดล้อมและความปลอดภัย</option>
+                                <option value="สาขาวิชาวิทยาการคอมพิวเตอร์และปัญญาประดิษฐ์">สาขาวิชาวิทยาการคอมพิวเตอร์และปัญญาประดิษฐ์</option>
+                                <option value="สาขาวิชาวิศวกรรมการผลิตและการจัดการพลังงาน" >สาขาวิชาวิศวกรรมการผลิตและการจัดการพลังงาน</option>
+                                <option value="สาขาวิชาออกแบบผลิตภัณฑ์อุตสาหกรรม">สาขาวิชาออกแบบผลิตภัณฑ์อุตสาหกรรม</option>
+                                <option value="สาขาวิชาอิเล็กทรอนิกส์อัจฉริยะและหุ่นยนต์">สาขาวิชาอิเล็กทรอนิกส์อัจฉริยะและหุ่นยนต์</option>
+                                <option value="หลักสูตรการแพทย์จีนบัณฑิต(พจ.บ)" >หลักสูตรการแพทย์จีนบัณฑิต(พจ.บ)</option>
+                                <option value="วิทยาศาสตร์มหาบัณฑิตหลักสูตรวิทยาศาสตร์ศึกษา(วท.ม)">วิทยาศาสตร์มหาบัณฑิตหลักสูตรวิทยาศาสตร์ศึกษา(วท.ม)</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>ชื่อ</label>
+                            <input type="text" placeholder="ชื่อ" id="nameH" name="nameH" value="" required>
+                        </div>
+                        <div class="input-field">
+                            <label>นามสกุล</label>
+                            <input type="text" placeholder="นามสกุล" class="custom-file-input" id="surnameH" name="surnameH" value="" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" placeholder="Email" id="emailH" name="emailH" value="" required>
+                        </div>
+                        <div class="input-field1">
+                            <label>รหัสผ่าน(รหัสประจำตัว)</label>
+                            <input type="text" placeholder="รหัสผ่าน" id="passwordH" name="passwordH" value="" required>
+                        </div>
+                        <div class="sumbit1">
+                            <input class="backBtn3" type="submit" name="RegisterH" value="บันทึก">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

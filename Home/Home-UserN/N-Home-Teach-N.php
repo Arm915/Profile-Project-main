@@ -75,13 +75,13 @@
           </tr>
             </tbody>
                     <tr>
-                      <td><a href="N-from-Teach.php?day=mon" class="buttonT"></a></td>
-                      <td><a href="N-from-Teach.php?day=tue" class="buttonT"></a></td>
-                      <td><a href="N-from-Teach.php?day=wed" class="buttonT"></a></td>
-                      <td><a href="N-from-Teach.php?day=thu" class="buttonT"></a></td>
-                      <td><a href="N-from-Teach.php?day=fri" class="buttonT"></a></td>
-                      <td><a href="N-from-Teach.php?day=sat" class="buttonT"></a></td>
-                      <td><a href="N-from-Teach.php?day=sun" class="buttonT"></a></td>
+                      <td><a href="N-from-Teach.php?day=mon" class="buttonT">ลงข้อมูลวันจันทร์</a></td>
+                      <td><a href="N-from-Teach.php?day=tue" class="buttonT">ลงข้อมูลวันอังคาร</a></td>
+                      <td><a href="N-from-Teach.php?day=wed" class="buttonT">ลงข้อมูลวันพุธ</a></td>
+                      <td><a href="N-from-Teach.php?day=thu" class="buttonT">ลงข้อมูลวันพฤหัสบดี</a></td>
+                      <td><a href="N-from-Teach.php?day=fri" class="buttonT">ลงข้อมูลวันศุกร</a></td>
+                      <td><a href="N-from-Teach.php?day=sat" class="buttonT">ลงข้อมูลวันเสาร์</a></td>
+                      <td><a href="N-from-Teach.php?day=sun" class="buttonT">ลงข้อมูลวันอาทิตย์</a></td>
                     </tr>
                   </tbody>
                 </table>

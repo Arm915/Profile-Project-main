@@ -214,3 +214,7 @@ select[id=cars2] {
     width: 260px;
     margin: 3px 3px 1px 0px;
 }
+.error{
+    color: red;
+    text-align: center;
+}

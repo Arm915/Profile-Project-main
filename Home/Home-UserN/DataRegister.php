@@ -70,6 +70,9 @@ if (array_key_exists("submitresearch", $_POST)) {
     if ($_FILES['capitaldocuments']['size'] > 500000 && $_FILES['capitaldocuments']['name'] != '') {
         $uploadOk = 0;
     }
+    else{
+        echo "ไฟล์ขนาดใหญ่เกิน";
+    }
 
     // เซฟข้อมูลลงฐานข้อมูล
     if ($uploadOk == 0) {
