@@ -107,7 +107,7 @@
                                 <a href="..\Home-UserN\FilePDF\Research\capitaldocuments/<?php echo $row1['capitaldocuments']; ?>" target="_blank"><?php echo $row1['capitaldocuments']; ?></a>
                               </td>
                               <td><?php echo $row1['description']; ?></td>
-                              <th class="conbut2"><a href="Admin-from-Research-edit.php?id=<?php echo $row1['id']; ?>" class="button3">ดู</a></th>
+                              <th class="conbut2"><a href="Admin-from-Research-edit.php?id=<?php echo $row1['id']; ?>" class="button3">แก้ไข</a></th>
                           </tr>
                           <?php
                           break;

@@ -27,7 +27,7 @@ include('DataRegister.php');
                             <label>ชื่องาน</label>
                             <input type="text" placeholder="ชื่องาน" id="nameart_service" name="nameart_service" required>
                         </div>
-                            <div class="input-field">
+                        <div class="input-field">
                             <label>ไฟล์PDF</label>
                             <input type="file" placeholder="ไฟล์PDF" class="custom-file-input" id="performance_art_service" name="performance_art_service" required>
                         </div>

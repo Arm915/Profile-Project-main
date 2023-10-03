@@ -117,12 +117,12 @@ input[type=file]::file-selector-button {
     color: #000000;
     cursor: pointer;
     transition: background .2s ease-in-out;
-  }
-  
+}
+
 input[type=file]::file-selector-button:hover {
     background: rgb(46, 46, 46);
     color: #ffffff;
-  }
+}
 
 .input-field1{
     display: flex;
@@ -217,4 +217,18 @@ select[id=cars2] {
 .error{
     color: red;
     text-align: center;
+}
+
+.backBtn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 2px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+.backBtn:hover {
+    background-color: #0056b3;
 }

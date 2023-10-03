@@ -33,8 +33,6 @@ $password = mysqli_real_escape_string($conn,  $_POST['passwordN']);
     }
     if (!$password) {
     $error .= "ไม่ใส่รหัสผ่าน <br>";
-    } elseif (strlen($password) < 8) {
-    $error .= "รหัสผ่านต้องมีอย่างน้อย 8 เลข <br>";
     }
     else {
     
@@ -46,9 +44,6 @@ $password = mysqli_real_escape_string($conn,  $_POST['passwordN']);
             $query = "INSERT INTO watcher_user (username, surname, email, rank, branch, Pass) VALUES ('$name', '$surname', '$email', '$rank', '$branch', '$password')";
             if (!mysqli_query($conn, $query)){
                 $error ="<p>ไม่สามารถลงทะเบียนได้โปรดลองอีกครั้ง</p>";
-                } else {
-                $_SESSION['Id'] = mysqli_insert_id($conn);  
-                $_SESSION['name'] = $name;
                 }
                 header("Location: Admin-Home-ID-H.php");  
                 }
@@ -69,6 +64,8 @@ $password = mysqli_real_escape_string($conn,  $_POST['passwordN']);
 <body>
     <div class="container">
         <header>ID : </header>
+        <a href="Admin-Home-ID-H.php" class="backBtn">ย้อนกลับ</a>
+        <div class="error" > <?php echo $error; ?></div>
     <form action="" method="POST">
         <div class="form first">
             <div class="details personal">
@@ -77,10 +74,10 @@ $password = mysqli_real_escape_string($conn,  $_POST['passwordN']);
                         <div class="input-field">
                             <label>ตำแหน่ง</label>
                             <select id="cars1" name="rankN" value="" required>
-                                <option value="volvo" selected>ตำแหน่ง</option>
-                                <option value="saab">Saab</option>
-                                <option value="vw">VW</option>
-                                <option value="audi" >ตำแหน่ง</option>
+                                <option value="" selected>ตำแหน่ง</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="vw">VW</option>
+                                    <option value="audi" >ตำแหน่ง</option>
                             </select>
                         </div>
                         <div class="input-field">
@@ -122,9 +119,8 @@ $password = mysqli_real_escape_string($conn,  $_POST['passwordN']);
                         </div>
                         <div class="input-field1">
                             <label>รหัสผ่าน(รหัสประจำตัว)</label>
-                            <input type="text" placeholder="รหัสผ่าน" id="passwordN" name="passwordN" value="" required>
+                            <input type="text" placeholder="รหัสผ่าน" id="passwordN" name="passwordN" minlength="8" value="" required>
                         </div>
-                        <div class="error" > <?php echo $error; ?></div>
                         <div class="sumbit1">
                             <input class="backBtn3" type="submit" name="RegisterN" value="บันทึก">
                         </div>

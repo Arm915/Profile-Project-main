@@ -33,9 +33,7 @@ $password = mysqli_real_escape_string($conn,  $_POST['passwordH']);
     }
     if (!$password) {
     $error .= "ไม่ใส่รหัสผ่าน <br>";
-    } elseif (strlen($password) < 8) {
-    $error .= "รหัสผ่านต้องมีอย่างน้อย 8 เลข <br>";
-    }
+    } 
     else {
     
         $query = "SELECT id FROM regis WHERE email = '$email'";
@@ -46,11 +44,8 @@ $password = mysqli_real_escape_string($conn,  $_POST['passwordH']);
             $query = "INSERT INTO regis (username, surname, email, rank, branch, Pass) VALUES ('$name', '$surname', '$email', '$rank', '$branch', '$password')";
             if (!mysqli_query($conn, $query)){
                 $error ="<p>ไม่สามารถลงทะเบียนได้โปรดลองอีกครั้ง</p>";
-                } else {
-                $_SESSION['Id'] = mysqli_insert_id($conn);  
-                $_SESSION['name'] = $name;
                 }
-                header("Location: Admin-Home-ID-H.php");  
+                header("Location: Admin-Home-ID-N.php");  
                 }
             }
         }  
@@ -69,10 +64,11 @@ $password = mysqli_real_escape_string($conn,  $_POST['passwordH']);
 <body>
     <div class="container">
         <header>ID : </header>
+        <a href="Admin-Home-ID-N.php" class="backBtn">ย้อนกลับ</a>
+        <div class="error" > <?php echo $error; ?></div>
     <form action="" method="POST">
-
         <div class="form first">
-            <div class="details personal">
+            <div class="details personal"></div>
             <span class="title">เพิ่มบัญชีทั่วไป</span>
             <div class="error" > <?php echo $error; ?></div>
                     <div class="fields">
@@ -124,7 +120,7 @@ $password = mysqli_real_escape_string($conn,  $_POST['passwordH']);
                         </div>
                         <div class="input-field1">
                             <label>รหัสผ่าน(รหัสประจำตัว)</label>
-                            <input type="text" placeholder="รหัสผ่าน" id="passwordH" name="passwordH" value="" required>
+                            <input type="text" placeholder="รหัสผ่าน" id="passwordH" name="passwordH" minlength="8" value="" required>
                         </div>
                         <div class="sumbit1">
                             <input class="backBtn3" type="submit" name="RegisterH" value="บันทึก">

@@ -6,12 +6,14 @@ include('DataRegister.php');
 
 <?php
 
-$error = "";
+$error1 = "";
+$error2 = "";
 include('DataLoRe.php');
 $conn = mysqli_connect('localhost', 'root', '', 'profile');
 
 // ตรวจสอบว่ามีการส่งคำขอแก้ไขข้อมูลผ่านฟอร์มหรือไม่
 if (isset($_POST['editrUN'])) {
+    $id = intval($id);
     $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
     // ตรวจสอบว่ามีค่าในฟิลด์และไม่เป็นค่าว่าง
@@ -24,49 +26,60 @@ if (isset($_POST['editrUN'])) {
 
     if (!empty($passwordN) && strlen($passwordN) < 8) {
         // รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัว
-        $error = "รหัสผ่านต้องมีอย่างน้อย 8 ตัว";
-    } else {
-        // ส่งคำสั่ง SQL ให้ดึงข้อมูลแถวที่ต้องการแก้ไข
-        $query = "SELECT * FROM regis WHERE id = $id";
-        $result = mysqli_query($conn, $query);
-
-        // ตรวจสอบว่าพบข้อมูลหรือไม่
-        if (mysqli_num_rows($result) === 1) {
-            // ดึงข้อมูลจากฐานข้อมูล
-            $row = mysqli_fetch_assoc($result);
-
-            // สร้างเงื่อนไขในการอัปเดตเพียงฟิลด์ที่มีค่า
-            $updateFields = [];
-            if (!empty($nameN)) {
-                $updateFields[] = "username = '$nameN'";
-            }
-            if (!empty($surnameN)) {
-                $updateFields[] = "surname = '$surnameN'";
-            }
-            if (!empty($emailN)) {
-                $updateFields[] = "email = '$emailN'";
-            }
-            if (!empty($rankN)) {
-                $updateFields[] = "rank = '$rankN'";
-            }
-            if (!empty($branchN)) {
-                $updateFields[] = "branch = '$branchN'";
-            }
-            if (!empty($passwordN)) {
-                $updateFields[] = "Pass = '$passwordN'";
-            }
-
-            // ตรวจสอบว่ามีฟิลด์ที่ต้องการอัปเดตหรือไม่
-            if (!empty($updateFields)) {
-                // สร้างคำสั่ง SQL ให้ปรับปรุงข้อมูลในแถวที่ต้องการแก้ไข
-                $updateQuery = "UPDATE regis SET " . implode(", ", $updateFields) . " WHERE id = $id";
-
-                // ตรวจสอบว่าปรับปรุงข้อมูลสำเร็จหรือไม่
-                if (mysqli_query($conn, $updateQuery)) {
-                    header("Location: Admin-Home-ID-N.php");
-                    exit();
+        $error1 = "รหัสผ่านต้องมีอย่างน้อย 8 ตัว";
+    } 
+    if (!empty($emailN)) {
+        // ตรวจสอบว่าอีเมลซ้ำกับข้อมูลอื่นในฐานข้อมูลหรือไม่
+        $checkEmailQuery = "SELECT * FROM regis WHERE email = '$emailN' AND id != $id";
+        $result = mysqli_query($conn, $checkEmailQuery);
+    
+        if (mysqli_num_rows($result) > 0) {
+            // ถ้ามีอีเมลที่ซ้ำกันในฐานข้อมูลให้ใช้ค่าเดิม
+            $error2 = "อีเมลนี้มีอยู่ในระบบแล้ว";
+        }
+        else {
+            // ส่งคำสั่ง SQL ให้ดึงข้อมูลแถวที่ต้องการแก้ไข
+            $query = "SELECT * FROM regis WHERE id = $id";
+            $result = mysqli_query($conn, $query);
+    
+            // ตรวจสอบว่าพบข้อมูลหรือไม่
+            if (mysqli_num_rows($result) === 1) {
+                // ดึงข้อมูลจากฐานข้อมูล
+                $row = mysqli_fetch_assoc($result);
+    
+                // สร้างเงื่อนไขในการอัปเดตเพียงฟิลด์ที่มีค่า
+                $updateFields = [];
+                if (!empty($nameN)) {
+                    $updateFields[] = "username = '$nameN'";
                 }
-            } 
+                if (!empty($surnameN)) {
+                    $updateFields[] = "surname = '$surnameN'";
+                }
+                if (!empty($emailN)) {
+                    $updateFields[] = "email = '$emailN'";
+                }
+                if (!empty($rankN)) {
+                    $updateFields[] = "rank = '$rankN'";
+                }
+                if (!empty($branchN)) {
+                    $updateFields[] = "branch = '$branchN'";
+                }
+                if (!empty($passwordN)) {
+                    $updateFields[] = "Pass = '$passwordN'";
+                }
+    
+                // ตรวจสอบว่ามีฟิลด์ที่ต้องการอัปเดตหรือไม่
+                if (!empty($updateFields)) {
+                    // สร้างคำสั่ง SQL ให้ปรับปรุงข้อมูลในแถวที่ต้องการแก้ไข
+                    $updateQuery = "UPDATE regis SET " . implode(", ", $updateFields) . " WHERE id = $id";
+    
+                    // ตรวจสอบว่าปรับปรุงข้อมูลสำเร็จหรือไม่
+                    if (mysqli_query($conn, $updateQuery)) {
+                        header("Location: Admin-Home-ID-N.php");
+                        exit();
+                    }
+                } 
+            }
         }
     }
 }
@@ -112,12 +125,14 @@ if(isset($_GET['id'])) {
 </head>
 <body>
     <div class="container">
+    <div class="error" > <?php echo $error1; ?></div>
+    <div class="error" > <?php echo $error2; ?></div>
         <header>ID : </header>
+        <a href="Admin-Home-ID-N.php" class="backBtn">ย้อนกลับ</a>
     <form action="" method="POST">
         <div class="form first">
             <div class="details personal">
             <span class="title">แก้ไขบัญชีทั่วไป</span>
-            <div class="error" > <?php echo $error; ?></div>
                     <div class="fields">
                         <div class="input-field">
                             <label>ตำแหน่ง</label>
@@ -167,7 +182,7 @@ if(isset($_GET['id'])) {
                         </div>
                         <div class="input-field1">
                             <label>รหัสผ่าน(รหัสประจำตัว)</label>
-                            <input type="text" placeholder="รหัสผ่าน" id="passwordN" name="passwordN" value="<?php echo $password; ?>">
+                            <input type="text" placeholder="รหัสผ่าน" id="passwordN" name="passwordN" minlength="8" value="<?php echo $password; ?>">
                         </div>
                         <div class="sumbit1">
                             <input class="backBtn1" type="submit" name="editrUN" value="บันทึกการแก้ไข">
