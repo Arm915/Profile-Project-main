@@ -486,3 +486,14 @@ th {
     background-color: #595a5a;
     color: #fff;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* ระยะห่างด้านบน (แก้ตามที่คุณต้องการ) */
+}
+
+.pagination a {
+    margin: 0 5px; /* ระยะห่างระหว่างลิงก์ (แก้ตามที่คุณต้องการ) */
+}

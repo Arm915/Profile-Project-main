@@ -18,6 +18,7 @@ include('DataRegister.php');
 <body>
     <div class="container">
         <header>เรื่องศิลปะวัฒนธรรมและบริการวิชาการ</header>
+        <a href="N-Home-Art&service-N.php" class="backBtn">ย้อนกลับ</a>
     <form action="DataRegister.php" method="POST" enctype="multipart/form-data">
         <div class="form first">
             <div class="details personal">
