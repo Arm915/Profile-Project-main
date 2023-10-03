@@ -53,10 +53,17 @@ include('DataRegister.php');
                 <div class="error"> <?php echo $error; ?></div>
                     <div class="inputcombo">
                         <select id="cars1" name="rank">
-                            <option value="volvo" selected>ตำแหน่ง</option>
-                            <option value="saab">Saab</option>
-                            <option value="vw">VW</option>
-                            <option value="audi" >ตำแหน่ง</option>
+                        <option value="" selected>ตำแหน่ง</option>
+                            <option value="อธิการบดี" >อธิการบดี</option>
+                            <option value="รองอธิการบดี">รองอธิการบดี</option>
+                            <option value="คณบดี">คณบดี</option>
+                            <option value="ผู้ช่วยอธิการบดี" >ผู้ช่วยอธิการบดี</option>
+                            <option value="รองคณบดี" >รองคณบดี</option>
+                            <option value="ผู้อำนวยการสำนักงานอธิการบดี">ผู้อำนวยการสำนักงานอธิการบดี</option>
+                            <option value="ศาสตราจารย์">ศาสตราจารย์</option>
+                            <option value="รองศาสตราจารย์" >รองศาสตราจารย์</option>
+                            <option value="ผู้ช่วยศาสตราจารย์" >ผู้ช่วยศาสตราจารย์</option>
+                            <option value="อาจารย์">อาจารย์</option>
                         </select>
                         <select id="cars2" name="branch">
                         <option value="" selected>สาขา</option>
