@@ -67,7 +67,6 @@ if (isset($_POST['edita'])) {
         if (!empty($daystart_art_service1)) {
             $currentDate = date('Y-m-d'); 
             if ($daystart_art_service1 > $currentDate) {
-                echo "วันที่เริ่มไม่สามารถเกินวันปัจจุบันได้";
             } else {
                 $updateFields[] = "daystart = '$daystart_art_service1'";
             }
@@ -75,7 +74,6 @@ if (isset($_POST['edita'])) {
         if (!empty($dayend_art_service1)) {
             $currentDate = date('Y-m-d'); 
             if ($dayend_art_service1 > $currentDate) {
-                echo "วันที่จบไม่สามารถเกินวันปัจจุบันได้";
             } else {
                 $updateFields[] = "dayend = '$dayend_art_service1'";
             }
@@ -83,12 +81,10 @@ if (isset($_POST['edita'])) {
         if (!empty($hour_art_service1) && $hour_art_service1 >= 0) {
             $updateFields[] = "hour = '$hour_art_service1'";
         } else {
-            echo "ค่าชั่วโมงไม่ถูกต้อง";
         }
         if (!empty($score_art_service1) && $score_art_service1 >= 0) {
             $updateFields[] = "score = '$score_art_service1'";
         } else {
-            echo "ค่าคะแนนไม่ถูกต้อง";
         }
         if (!empty($description_art_service1)) {
             $updateFields[] = "description = '$description_art_service1'";
@@ -140,8 +136,6 @@ if(isset($_GET['id'])) {
     echo "ไม่มีข้อมูลที่ต้องการแสดง";
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">

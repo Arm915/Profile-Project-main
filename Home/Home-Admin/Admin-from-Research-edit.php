@@ -131,7 +131,6 @@ if (isset($_POST['editr'])) {
         if (!empty($day1)) {
             $currentDate = date('Y-m-d'); 
             if ($day1 > $currentDate) {
-                echo "วันที่ไม่สามารถเกินวันปัจจุบันได้";
             } else {
                 $updateFields[] = "day = '$day1'";
             }

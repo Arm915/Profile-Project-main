@@ -63,7 +63,9 @@
                         foreach ($days as $day) {
                             if (isset($data_by_day[$day][$i])) {
                                 $data = $data_by_day[$day][$i];
-                                echo '<td><a href="N-from-Teach-edit.php?day=' . $day . '&id=' . $data['id'] . '" class="buttonT"><span>' . $data['subject_name'] . '</span></a></td>';
+                                echo '<td><a href="N-from-Teach-edit.php?day=' . $day . '&id=' . $data['id'] . 
+                                '" class="buttonT"><span>' . $data['course_code'] ." , ". $data['study_group'] .
+                                "<br />". $data['room'] . "<br />". "(". $data['start_time'] . "-" . $data['end_time'] . ")" . '</span></a></td>';
                             } else {
                                 echo '<td></td>';
                             }
@@ -88,40 +90,6 @@
             </div>
           </div>
         </body>
-      </div>
-        <h4 class="art_section">ผลงานทั้งหมด
-        <div class="box1">
-            <form name="search">
-              <input type="search" class="input" name="txt" placeholder="ค้นหา..." onmouseout="this.value = ''; this.blur();">
-              <a href="from.php" class="button1"><i class="bx bxs-chevrons-right right-arrow toggle2"></i></a>
-            </form>
-          </div>
-        </h4>
-        <table class="art_table">
-          <thead class="art_thead">
-            <tr class="a-t-h">
-              <th>ชื่องาน</th>
-              <th>รายละเอียด</th>
-            </tr>
-          </thead >
-          <tbody class="art_tbody">
-          <?php 
-            if (isset($_SESSION['Id'])) {
-              $Id = $_SESSION['Id'];
-              $sql = "SELECT * FROM art_service WHERE Id_identity = '$Id'";
-              $result = mysqli_query($conn, $sql);
-              while($row = mysqli_fetch_array($result)){
-          ?>
-                <tr>
-                  <td><?php echo $row['name_art']; ?></td>
-                  <td><?php echo $row['performance_art']; ?></td>
-                </tr>
-          <?php 
-              }
-            }
-          ?>
-          </tbody>
-        </table>
       </div>
     </nav>
     

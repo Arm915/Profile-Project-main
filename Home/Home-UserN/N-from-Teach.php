@@ -18,6 +18,7 @@ include('DataRegister.php');
 <body>
     <div class="container">
         <header>ตารางสอน</header>
+        <a href="N-Home-Teach-N.php" class="backBtn">ย้อนกลับ</a>
     <form action="" method="POST" enctype="multipart/form-data">
         <div class="form first">
             <div class="details personal">
@@ -25,27 +26,27 @@ include('DataRegister.php');
                     <div class="fields">
                         <div class="input-field">
                             <label>ชื่อวิชา</label>
-                            <input type="text" placeholder="ระบบฐานข้อมูล,สถิติสำหรับคอมพิวเตอร์...." id="Subjectname" name="Subjectname" required>
+                            <input type="text" id="Subjectname" name="Subjectname" required>
                         </div>
                         <div class="input-field">
                             <label>รหัสวิชา</label>
-                            <input type="text" placeholder="ITEC3501,COMP2205...." class="custom-file-input" id="coursecode" name="coursecode" required>
+                            <input type="text" class="custom-file-input" id="coursecode" name="coursecode" required>
                         </div>
                         <div class="input-field">
                             <label>กลุ่มเรียน</label>
-                            <input type="text" placeholder="101,102...." id="studygroup" name="studygroup" required>
+                            <input type="text" id="studygroup" name="studygroup" required>
                         </div>
                         <div class="input-field">
                             <label>คณะ</label>
-                            <input type="text" placeholder="วิทยาศาสตร์,หมวดวิชาศึกษาทั่วไป...." id="group" name="group" required>
+                            <input type="text" id="group" name="group" required>
                         </div>
                         <div class="input-field">
                             <label>ห้อง</label>
-                            <input type="text" placeholder="15-1103,บรรยาย1...." id="room" name="room" required>
+                            <input type="text" id="room" name="room" required>
                         </div>
                         <div class="input-field">
                             <label>หน่วยกิต</label>
-                            <input type="text" placeholder="3(2-2-5),3 (2-2-5)...." id="credit" name="credit" required>
+                            <input type="text" id="credit" name="credit" required>
                         </div>
                         <div class="input-field">
                             <label>เวลาเริ่ม</label>

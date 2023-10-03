@@ -49,6 +49,10 @@ if (array_key_exists("submitresearch", $_POST)) {
     $picturediagram_ext = strtolower(pathinfo($target_picturediagram, PATHINFO_EXTENSION));
     $capitaldocuments_ext = strtolower(pathinfo($target_capitaldocuments, PATHINFO_EXTENSION));
 
+    if (strtotime($day) > time()) {
+        echo "วันที่ไม่สามารถเป็นวันในอนาคต";
+        exit;
+    }
     // ให้เป็นไฟล์ PDF เท่านั้น
     if ($researchfile_ext != "pdf") {
         $uploadOk = 0;
@@ -149,6 +153,23 @@ if (array_key_exists("submit2", $_POST)) {
     // แยกจำแนกประเภทไฟล์และทำให้เป็นพิมพ์เล็ก
     $researchfile_ext = strtolower(pathinfo($target_researchfile, PATHINFO_EXTENSION));
 
+    if (strtotime($daystart_art_service) > time()) {
+        echo "วันที่ไม่สามารถเป็นวันในอนาคต";
+        exit;
+    }
+    if (strtotime($dayend_art_service) > time()) {
+        echo "วันที่ไม่สามารถเป็นวันในอนาคต";
+        exit;
+    }
+    if (!is_numeric($hour_art_service) || $hour_art_service < 0) {
+        echo "ชั่วโมงต้องเป็นตัวเลขที่ไม่ติดลบ";
+        exit;
+    }
+    
+    if (!is_numeric($score_art_service) || $score_art_service < 0) {
+        echo "คะแนนต้องเป็นตัวเลขที่ไม่ติดลบ";
+        exit;
+    }
     // ให้เป็นไฟล์ PDF เท่านั้น
     if ($researchfile_ext != "pdf") {
         $uploadOk = 0;

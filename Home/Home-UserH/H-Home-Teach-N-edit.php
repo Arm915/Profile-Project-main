@@ -25,6 +25,9 @@
       <div class="timetable">
         <body>
           <div class="container">
+          <div style="display: flex; justify-content: center;">
+          <a href="H-Home-Teach-N.php" style="text-decoration: none; color: white; background-color: blue; padding: 10px 20px; border-radius: 5px;">ย้อนกลับ</a>
+          </div>
             <div class="table-container">
                 <table>
                   <thead>
@@ -63,12 +66,14 @@
                         for ($i = 0; $i < $maxRows; $i++) {
                             echo '<tr>';
                             foreach ($days as $day) {
-                                if (isset($data_by_day[$day][$i])) {
-                                    $data = $data_by_day[$day][$i];
-                                    echo '<td><a href="H-from-Teach.php' . $day . '&id=' . $data['id'] . '" class="buttonT"><span>' . $data['subject_name'] . '</span></a></td>';
-                                } else {
-                                    echo '<td></td>';
-                                }
+                              if (isset($data_by_day[$day][$i])) {
+                                $data = $data_by_day[$day][$i];
+                                echo '<td><a href="H-from-Teach.php?day=' . $day . '&id=' . $data['id'] . 
+                                '" class="buttonT"><span>' . $data['course_code'] ." , ". $data['study_group'] .
+                                "<br />". $data['room'] . "<br />". "(". $data['start_time'] . "-" . $data['end_time'] . ")" . '</span></a></td>';
+                              } else {
+                                  echo '<td></td>';
+                              }
                             }
                             echo '</tr>';
                         }

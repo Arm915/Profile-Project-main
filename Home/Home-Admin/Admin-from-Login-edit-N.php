@@ -13,7 +13,6 @@ $conn = mysqli_connect('localhost', 'root', '', 'profile');
 
 // ตรวจสอบว่ามีการส่งคำขอแก้ไขข้อมูลผ่านฟอร์มหรือไม่
 if (isset($_POST['editrUN'])) {
-    $id = intval($id);
     $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
     // ตรวจสอบว่ามีค่าในฟิลด์และไม่เป็นค่าว่าง

@@ -98,7 +98,7 @@
                                         <td><?php echo $row1['hour']; ?></td>
                                         <td><?php echo $row1['score']; ?></td>
                                         <td><?php echo $row1['description']; ?></td>
-                                        <th class="conbut2"><a href="H-from-Art&service-edit.php" class="button3">ดู</a></th>
+                                        <th class="conbut2"><a href="H-from-Art&service-edit.php?id=<?php echo $row1['id']; ?>" class="button3">ดู</a></th>
                                     </tr>
                                     <?php
                                     break;
