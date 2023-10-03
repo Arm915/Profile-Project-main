@@ -33,6 +33,15 @@
           <thead class="art_thead">
             <tr class="a-t-h">
               <th>ชื่ออาจาร</th>
+              <th>ชื่อวิชา</th>
+              <th>วันที่สอน</th>
+              <th>รหัสวิชา</th>
+              <th>กลุ่มเรียน</th>
+              <th>คณะ</th>
+              <th>ห้อง</th>
+              <th>หน่วยกิต</th>
+              <th>เวลาเริ่ม</th>
+              <th>เวลาจบ</th>
               <th class="conbut2">ดู</th>
             </tr>
           </thead >
@@ -72,7 +81,7 @@
               $sql1 .= " LIMIT $offset, $recordsPerPage";
               $result1 = mysqli_query($conn, $sql1);
 
-              if ($row1 = mysqli_fetch_assoc($result1)) {
+              while ($row1 = mysqli_fetch_assoc($result1)) {
                   $id_identity = $row1['Id_identity'];
                   $found = false;
                   while ($row2 = mysqli_fetch_assoc($result2)) {
@@ -84,8 +93,17 @@
                           }
                           ?>
                           <tr>
-                              <td><?php echo $row2['username']; ?></td>
-                              <th class="conbut2"><a href="H-Home-Teach-N-edit.php?>" class="button3">ดู</a></th>
+                              <td><?php echo $row2['username'] ." ". $row2['surname'] ; ?></td>
+                              <td><?php echo $row1['subject_name']; ?></td>
+                              <td><?php echo $row1['day']; ?></td>
+                              <td><?php echo $row1['course_code']; ?></td>
+                              <td><?php echo $row1['study_group']; ?></td>
+                              <td><?php echo $row1['faculty']; ?></td>
+                              <td><?php echo $row1['room']; ?></td>
+                              <td><?php echo $row1['credit']; ?></td>
+                              <td><?php echo $row1['start_time']; ?></td>
+                              <td><?php echo $row1['end_time']; ?></td>
+                              <th class="conbut2"><a href="H-from-Teach.php?id=<?php echo $row1['id']; ?>" class="button3">ดู</a></th>
                           </tr>
                           <?php
                           break;

@@ -48,7 +48,7 @@ if(isset($_GET['id'])) {
 <body>
     <div class="container">
         <header>The Watcher : ตารางสอน</header>
-        <a href="H-Home-Teach-N-edit.php" class="backBtn">ย้อนกลับ</a>
+        <a href="H-Home-Teach-N.php" class="backBtn">ย้อนกลับ</a>
     <form action="DataRegister.php" method="POST">
         <div class="form first">
             <div class="details personal">
